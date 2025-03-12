@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Tetris</title>
+  </head>
+  <body>
+    <main class="main">
+      <!-- le palline colorate di background -->
+      <div class="bubbles">
+        <span style="--i:11"></span>
+        <span style="--i:12"></span>
+        <span style="--i:24"></span>
+        <span style="--i:10"></span>
+        <span style="--i:14"></span>
+        <span style="--i:23"></span>
+        <span style="--i:18"></span>
+        <span style="--i:16"></span>
+        <span style="--i:19"></span>
+        <span style="--i:20"></span>
+        <span style="--i:22"></span>
+        <span style="--i:25"></span>
+        <span style="--i:18"></span>
+        <span style="--i:21"></span>
+        <span style="--i:15"></span>
+        <span style="--i:13"></span>
+        <span style="--i:26"></span>
+        <span style="--i:17"></span>
+        <span style="--i:13"></span>
+        <span style="--i:28"></span>
+        <span style="--i:11"></span>
+        <span style="--i:12"></span>
+        <span style="--i:24"></span>
+        <span style="--i:10"></span>
+        <span style="--i:14"></span>
+        <span style="--i:23"></span>
+        <span style="--i:18"></span>
+        <span style="--i:16"></span>
+        <span style="--i:19"></span>
+        <span style="--i:20"></span>
+        <span style="--i:22"></span>
+        <span style="--i:25"></span>
+        <span style="--i:18"></span>
+        <span style="--i:21"></span>
+        <span style="--i:15"></span>
+        <span style="--i:13"></span>
+        <span style="--i:26"></span>
+        <span style="--i:17"></span>
+        <span style="--i:13"></span>
+        <span style="--i:28"></span>
+        <span style="--i:11"></span>
+        <span style="--i:12"></span>
+        <span style="--i:24"></span>
+        <span style="--i:10"></span>
+        <span style="--i:14"></span>
+        <span style="--i:23"></span>
+        <span style="--i:18"></span>
+        <span style="--i:16"></span>
+        <span style="--i:19"></span>
+        <span style="--i:20"></span>
+        <span style="--i:22"></span>
+        <span style="--i:25"></span>
+        <span style="--i:18"></span>
+        <span style="--i:21"></span>
+        <span style="--i:15"></span>
+        <span style="--i:13"></span>
+        <span style="--i:26"></span>
+        <span style="--i:17"></span>
+        <span style="--i:13"></span>
+        <span style="--i:28"></span>
+        <span style="--i:11"></span>
+        <span style="--i:12"></span>
+        <span style="--i:24"></span>
+        <span style="--i:10"></span>
+        <span style="--i:14"></span>
+        <span style="--i:23"></span>
+        <span style="--i:18"></span>
+        <span style="--i:16"></span>
+        <span style="--i:19"></span>
+        <span style="--i:20"></span>
+        <span style="--i:22"></span>
+        <span style="--i:25"></span>
+        <span style="--i:18"></span>
+        <span style="--i:21"></span>
+        <span style="--i:15"></span>
+        <span style="--i:13"></span>
+        <span style="--i:26"></span>
+        <span style="--i:17"></span>
+        <span style="--i:13"></span>
+        <span style="--i:28"></span>
+      </div>
+      <!-- il titolo tetris fatto in css -->
+      <div class="tetris-title">
+        <!-- Lettera T -->
+        <div class="letter t-letter">
+          <span></span><span></span><span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        
+        <!-- Lettera E -->
+        <div class="letter e-letter">
+          <span></span><span></span><span></span>
+          <span></span>
+          <span></span><span></span>
+          <span></span>
+          <span></span><span></span><span></span>
+        </div>
+        
+        <!-- Lettera T -->
+        <div class="letter t-letter">
+          <span></span><span></span><span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        
+        <!-- Lettera R migliorata -->
+        <div class="letter r-letter">
+          <span></span><span></span><span></span>
+          <span></span><span></span>
+          <span></span><span></span>
+          <span></span><span></span>
+          <span></span><span></span>
+        </div>
+        
+        <!-- Lettera I migliorata -->
+        <div class="letter i-letter">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        
+        <!-- Lettera S migliorata -->
+        <div class="letter s-letter">
+          <span></span><span></span><span></span>
+          <span></span>
+          <span></span><span></span><span></span>
+          <span></span>
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+      <!-- bottone e score -->
+      <div class="settings">
+          <h3>Score: <span id="score">0</span></h3>
+          <button id="start-btn">Start</button>
+      </div>
+
+    
+    <div class="container">
+    <div class="grid">
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class = "squares"></div>
+      <div class="taken"></div>
+      <div class="taken"></div>
+      <div class="taken"></div>
+      <div class="taken"></div>
+      <div class="taken"></div>
+      <div class="taken"></div>
+      <div class="taken"></div>
+      <div class="taken"></div>
+      <div class="taken"></div>
+      <div class="taken"></div>
+    </div>
+
+    <div class="mini-grid">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+
+  </div> 
+    </main>
+
+
+    <script src="index.js"></script>
+  </body>
+</html>
