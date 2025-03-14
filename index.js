@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const grid = document.querySelector('.grid');
     let squares = Array.from(document.querySelectorAll('.grid div'));
     const scoreDisplay = document.querySelector('#score');
+    scoreDisplay.style.color = 'red';
     const startBtn = document.querySelector('#start-btn');
     const width = 10;
     let nextRandom = 0;
@@ -42,15 +43,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     updateTetrominoStyles(colors);
-
-    startBtn.addEventListener('click', function() {
-        if (startBtn.textContent === 'Start') {
-            startBtn.textContent = 'Pause'
-        } else {
-            startBtn.textContent = 'Start'
-        }
-    });
-
 
     const lTetromino = [
         [1, width + 1, width * 2 + 1, width * 2], 
@@ -263,11 +255,13 @@ function displayShape() {
         if (timerId) {
             clearInterval(timerId)
             timerId = null
+            startBtn.textContent = 'Start'
         } else {
             draw()
             timerId = setInterval(moveDown, 1000)
             nextRandom = Math.floor(Math.random()*theTetrominoes.length)
             displayShape()
+            startBtn.textContent = 'Pause'
         }
     });
 
@@ -277,6 +271,11 @@ function displayShape() {
             const row = [i, i+1, i+2, i+3, i+4, i+5, i+6, i+7, i+8, i+9]
 
             if(row.every(index => squares[index].classList.contains('taken'))) {
+                if (scoreDisplay.innerHTML === 0) {
+                    scoreDisplay.style.color = 'red'
+                } else {
+                    scoreDisplay.style.color = 'Yellow'
+                }
               score += 10
               scoreDisplay.innerHTML = score
               row.forEach(index => {
